@@ -1,7 +1,10 @@
 {
   "cli": {
     "version": ">= 14.0.2",
+<<<<<<< HEAD
     "requireCommit": true,
+=======
+>>>>>>> 96fea4f55c8cfd4ea2ab45dc84e47580439edccd
     "appVersionSource": "remote"
   },
   "build": {
