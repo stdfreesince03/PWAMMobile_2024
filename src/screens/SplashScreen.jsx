@@ -1,13 +1,24 @@
 // src/screens/SplashScreen.js
 import React, { useEffect } from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native'
+import * as SplashScreenNative from 'expo-splash-screen'
+
+SplashScreenNative.preventAutoHideAsync();
 
 const SplashScreen = ({ navigation }) => {
-  useEffect(() => {
-    setTimeout(() => {
-      navigation.replace('Home')
-    }, 3000)
-  }, [])
+  useEffect( () => {
+
+    const prepare = async () =>{
+      await SplashScreenNative.hideAsync();
+
+      setTimeout(() => {
+        navigation.replace('Home')
+      }, 3000);
+    }
+
+    prepare().catch(error => console.log(error));
+
+  }, [navigation])
 
   return (
     <View style={styles.container}>

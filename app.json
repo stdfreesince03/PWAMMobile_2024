@@ -8,16 +8,16 @@
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/final-splashscreen.png",
-      "backgroundColor": "#94B7D7"
+      "image": "./assets/splash_empty.png",
+      "backgroundColor": "#94B7D7",
+      "resizeMode": "cover"
     },
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/logo_without_text.png",
-        "backgroundColor": "#94B7D7"
+        "foregroundImage": "./assets/start_icon.png"
       },
       "package": "com.winata_t.powerVocabUji"
     },
