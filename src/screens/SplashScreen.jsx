@@ -5,15 +5,14 @@ import { View, Text, Image, StyleSheet } from 'react-native'
 const SplashScreen = ({ navigation }) => {
   useEffect(() => {
     setTimeout(() => {
-      // Ganti 'Home' dengan nama screen tujuan Anda
       navigation.replace('Home')
-    }, 3000) // Splash screen akan muncul selama 3 detik
+    }, 3000)
   }, [])
 
   return (
     <View style={styles.container}>
       <Image
-        source={require('../../assets/final-splashscreen.png')} // Sesuaikan path dengan lokasi asset Anda
+        source={require('../../assets/final-splashscreen.png')}
         style={styles.logo}
       />
     </View>
