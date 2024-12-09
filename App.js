@@ -1,21 +1,42 @@
-import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import SplashScreen from './src/screens/SplashScreen'
-import HomeScreen from './src/screens/HomeScreen'
+import { useEffect, useState } from 'react'
+import { View, Text, StyleSheet } from 'react-native'
+import * as SplashScreen from 'expo-splash-screen'
 
-const Stack = createNativeStackNavigator()
+SplashScreen.preventAutoHideAsync()
 
 export default function App() {
+  const [appIsReady, setAppIsReady] = useState(false)
+
+  useEffect(() => {
+    setAppIsReady(true)
+  }, [])
+
+  const onLayoutRootView = async () => {
+    if (appIsReady) {
+      await SplashScreen.hideAsync()
+    }
+  }
+
+  if (!appIsReady) {
+    return null
+  }
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Splash"
-        screenOptions={{ headerShown: false }}
-      >
-        <Stack.Screen name="Splash" component={SplashScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <View style={styles.container} onLayout={onLayoutRootView}>
+      <Text style={styles.text}>Selamat datang di aplikasi saya!</Text>
+    </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  text: {
+    fontSize: 18,
+    color: '#333',
+  },
+})
